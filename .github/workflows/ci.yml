@@ -1,17 +1,29 @@
-name: Build and Deploy
-on: [push]
+name: Auto Deploy # 当前工作流程的名称
+on: 
+  push: 
+    branches:
+       - main
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
+  runs-on: ubuntu-latest
+  steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v3
 
-    - name: vuepress-deploy
-      uses: wuxin0011/vue-page@main
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+          node-version: 16 # 指定node版本
+
+    - name: Build
+      run: |
+        npm install 
+        npm run build 
+    - name: Deploy
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: wuxin0011/vue-page
-        TARGET_BRANCH: main
-        BUILD_SCRIPT: npm install && npm run build
+        TARGET_BRANCH: gh-pages
         BUILD_DIR: docs/.vuepress/dist/
+
+ 
