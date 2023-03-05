@@ -17,7 +17,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        github-url: https://github.com/wuxin0011/vue-page
+        node-version: [16.17.0]
 
     steps:
       - name: Checkout # 步骤1
@@ -28,7 +29,7 @@ jobs:
           node-version: ${{ matrix.node-version }} # 版本
       - name: Build-and-deploy # 步骤3
         run: |
-          remote_addr=`git remote get-url --push origin`
+          remote_addr=`git remote ${{github-url}} --push origin`
           commit_info=`git describe --all --always --long`
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
