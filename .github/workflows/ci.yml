@@ -8,10 +8,10 @@ jobs:
       uses: actions/checkout@main
 
     - name: vuepress-deploy
-      uses: wuxin0011/vue-page-tempalte@main
+      uses: wuxin0011/vue-page@main
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: wuxin0011/vue-page-tempalte
+        TARGET_REPO: wuxin0011/vue-page
         TARGET_BRANCH: main
         BUILD_SCRIPT: npm install && npm run build
-        BUILD_DIR: blog/.vuepress/dist/
+        BUILD_DIR: docs/.vuepress/dist/
