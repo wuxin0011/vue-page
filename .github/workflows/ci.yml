@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: wuxin0011/vue-page@master
+      uses: wuxin0011/vue-page@main
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_DIR: docs/.vuepress/dist/ # The folder, the action should deploy.
