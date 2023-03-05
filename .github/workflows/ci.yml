@@ -1,31 +1,15 @@
-name: Auto Deploy 
-on: 
-  push: 
-    branches:
-       - main
+name: Build and Deploy
+on: [push]
 jobs:
   build-and-deploy:
-    name: build-and-deploy
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@master
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-            node-version: 16 # 指定node版本
-
-      - name: Build
-        run: |
-          npm install 
-          npm run build 
-      - name: Deploy
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: wuxin0011/vue-page
-          TARGET_BRANCH: gh-pages
-          BUILD_DIR: docs/.vuepress/dist/
-
- 
+    - name: Build and Deploy
+      uses: wuxin0011/vue-page@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_DIR: docs/.vuepress/dist/ # The folder, the action should deploy.
+        BUILD_SCRIPT: npm install && npm run build # The build script the action should run prior to deploying.
