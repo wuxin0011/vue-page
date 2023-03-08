@@ -13,9 +13,9 @@ jobs:
     # 服务器环境：最新版 Ubuntu
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: "16"
+    # strategy:
+    #   matrix:
+    #     node-version: "16"
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
