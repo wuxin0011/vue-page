@@ -22,13 +22,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
+          # cache: pnpm
 
       - name: 📦 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --registry=https://registry.npmmirror.com 
 
       - name: 🚧 Set up project
-        run: pnpm run build
+        run: npm run build
 
       - name: 🚀 deploy project
         uses: JamesIves/github-pages-deploy-action@releases/v3
