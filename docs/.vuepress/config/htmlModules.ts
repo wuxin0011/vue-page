@@ -28,8 +28,8 @@ const htmlModule: VdoingThemeConfig['htmlModules'] = {
       font-size: 20px;
       font-weight: bold;
       margin: 0 0 8px 0;
-    ">公众号</p>
-    <img src="/img/gzh.jpg"  style="width:100%;" />
+    ">微信</p>
+    <img src="https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/picgo/weixin.jpg"  style="width:100%;" />
     </p>
     </div>`,
   // `<!-- 纵向自适应 -->

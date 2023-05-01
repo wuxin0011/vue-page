@@ -1,2 +1,118 @@
-### 静态网站模板
-[原作者](https://github.com/xugaoyi/vuepress-theme-vdoing)
+## 个人网站模板
+
+
+[![https://wuxin0011.github.io/vue-page](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/vue-page.png)](https://wuxin0011.github.io/vue-page)
+
+
+
+
+
+## 脚本使用
+
+
+
+### 在bin目录中提供了不同脚本
+
+默认使用`pnpm`,如果是`yarn`或者`npm`，请注意修改包管理。
+
+安装 `pnpm`
+
+```shell
+npm install -g pnpm
+```
+
+脚本类型
+
+ - 下载 `pnpm install`
+ - 启动 `pnpm dev`
+ - 打包 `pnpm build`
+ - 推送 `git push`
+ - 部署（附带部署）`pnpm build` + `git push` + `部署到静态网址`
+
+ 
+为了方便，将脚本执行失败错误日志输出到 `log` 目录下
+
+ ### 使用方法
+
+ 下面两种方法执行脚本都可以，下面演示部署脚本
+ 
+ 1. 进入目录bin目录启动 
+
+ ```shell
+ # 进入bin目录
+ cd bin
+ # 使用默认发布消息
+ ./deploy.sh 
+ # 或者 使用传入参数消息
+./deploy.sh message
+ ```
+
+
+ 2. 在项目根目录部署
+```shell
+ ./bin/deploy.sh 
+ # 或者 使用传入参数消息
+ ./bin/deploy.sh message
+ ```
+
+>  **因为对脚本路径判断了，所以在不在项目根路径下执行都可以**
+
+### 注意
+
+因为每个部署发布仓库不同，需要修改 `deploy.sh` 中默认参数,
+
+一般来说只需要修改一下几个参数就可以了
+
+**必填项**
+
+1. `git_source` 仓库地址
+
+
+**可选**
+1. `build_source` ，包管理,默认是 `pnpm`，如果需要修改请指定
+2. `web_url` 项目发布消息，一般填写发布网址，这个可以随便填
+3. `main_branch`,主分支,默认值 `main`,**如果你的主分支是 `master`，请修改！**
+4. `pages_branch`，静态网页部署分支，默认 `gh-pages`,如果你想指定分支为部署分支 [点击这里](https://docs.github.com/zh/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+5. `git_message`,提交消息，默认是发布地址 `web_url`
+
+```shell
+# 项目发布域名
+web_url=https://wuxin0011.github.io/vue-page
+# 项目git 地址
+git_source=https://github.com/wuxin0011/vue-page
+# 上传分支，如果是 master 请使用 main_branch=master
+main_branch=main
+# 项目打包生成的上传分支
+pages_branch=test-pages
+# 上传消息
+git_message="deploy $web_url"
+```
+
+
+
+
+
+
+ ## 使用 `gtihub actions` ,自动化部署
+
+
+1.取消 `.github/workflows/ci.yml` 的全部注释！
+2.设置token
+
+
+ 如果你想使用 github actions 部署，请申请 `github_token`
+
+1.点击项目设置
+ ![setting](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/vue-page-setting.png)
+
+2.找到仓库环境变量设置选项，设置token，变量名设置为 `ACCESS_TOKEN`，
+ ![github_token](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/get_token.png)
+
+ 如果你还不知道如果申请token，点击这里 [申请token](https://github.com/settings/personal-access-tokens)
+
+ 
+
+
+
+
+ 

@@ -2,20 +2,24 @@
 set -e
 
 # 执行打包命令镜像 pnpm/npm/yarn
-source=pnpm
+build_source=pnpm
+build_command=dev
 
-# 执行命令，和 当前脚本名保持一致，省略.sh
-command=dev
 
+
+
+
+
+# 无需修改配置
+# 日志路径
 path="$(pwd)/log"
-log=$path/$command-error.log
+log=$path/$build_command-error.log
 
 
 exec_project(){
    cd $1
-   log_check
    echo "项目启动中……🍖"
-   $source $command 2>>$log
+   $build_source $build_command 2>>$log
    echo "项目启动成功 🚀"
    cd -
 }
@@ -34,7 +38,7 @@ log_check(){
 log_check
 
 
-if [[ "$0" == "$command.sh" || "$0" == "./$command.sh" ]]
+if [[ "$0" == "$build_command.sh" || "$0" == "./$build_command.sh" ]]
 then
    exec_project ..
 else

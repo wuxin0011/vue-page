@@ -96,3 +96,7 @@ else
    echo "当前执行目录为工程目录 🛹"
    exec_project .
 fi
+
+git add .
+git commit -m 'deploy to https://wuxin0011.github.io 🎉'
+git push

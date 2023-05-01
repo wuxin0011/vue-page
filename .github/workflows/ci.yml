@@ -1,36 +1,36 @@
-name: ci
+# name: ci
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch: {}
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#   workflow_dispatch: {}
 
-jobs:
-  ci:
-    runs-on: ubuntu-latest
+# jobs:
+#   ci:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          # cache: pnpm
+#     steps:
+#       - uses: actions/checkout@v3
+#       - run: corepack enable
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 16
+#           # cache: pnpm
 
-      - name: 📦 Install dependencies
-        run: npm install --registry=https://registry.npmmirror.com 
+#       - name: 📦 Install dependencies
+#         run: npm install --registry=https://registry.npmmirror.com 
 
-      - name: 🚧 Set up project
-        run: npm run build
+#       - name: 🚧 Set up project
+#         run: npm run build
 
-      - name: 🚀 deploy project
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} 
-          BRANCH: gh-pages 
-          FOLDER: docs/.vuepress/dist 
-          CLEAN: true
+#       - name: 🚀 deploy project
+#         uses: JamesIves/github-pages-deploy-action@releases/v3
+#         with:
+#           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} 
+#           BRANCH: gh-pages 
+#           FOLDER: docs/.vuepress/dist 
+#           CLEAN: true

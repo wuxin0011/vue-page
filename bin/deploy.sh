@@ -7,7 +7,6 @@ source=deploy
 
 # 打包命令 pnpm/yarn/npm
 build_source=pnpm
-# build
 build_command=build
 
 dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
@@ -19,9 +18,13 @@ git_source=https://github.com/wuxin0011/vue-page
 # 上传分支，如果是 master 请使用 main_branch=master
 main_branch=main
 # 项目打包生成的上传分支
-pages_branch=test-pages
+pages_branch=gh-pages
 # 上传消息
 git_message="deploy $web_url"
+
+
+
+
 
 
 # 日志
