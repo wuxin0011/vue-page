@@ -79,13 +79,13 @@ exec_project(){
    rm -rf $dist_path  2>>$log
    cd -
 
-   echo "项目成功发布到$web_url！🚀"
+   echo "项目成功发布!"
+   echo "$web_url"
 }
 
 
 log_check
 message_check
-
 
 # 判断当前路径是bin目录还是项目目录
 if [[ "$0" == "$source.sh" || "$0" == "./$source.sh" ]]
