@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{346:function(e,t,n){"use strict";n.r(t);var s={name:"MyPlayer"},a=n(1),l=Object(a.a)(s,(function(){return(0,this._self._c)("meting-js",{attrs:{server:"netease",type:"playlist",id:"7327522396",fixed:"true",theme:"#25CCF7",autoPlay:"false"}})}),[],!1,null,null,null);t.default=l.exports}}]);
