@@ -14,12 +14,12 @@ dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
 
 # 项目发布域名
 web_url=https://wuxin0011.github.io/vue-page
-# git
+# 项目git 地址
 git_source=https://github.com/wuxin0011/vue-page
 # 上传分支，如果是 master 请使用 main_branch=master
 main_branch=main
 # 项目打包生成的上传分支
-pages_branch=$main_branch:test-pages 
+pages_branch=test-pages
 # 上传消息
 git_message="deploy $web_url"
 
@@ -70,11 +70,10 @@ exec_project(){
 
    # 如果是发布到自定义域名
    # echo 'www.example.com' > CNAME
-
    git init  2>>$log
    git add -A  2>>$log
    git commit -m "$git_message" 2>>$log
-   git push -f "$git_source" "$pages_branch" 2>>$log
+   git push -f "$git_source" "$main_branch:$pages_branch" 2>>$log
 
    echo "正在清理打包文件！🧹"
    rm -rf $dist_path  2>>$log
