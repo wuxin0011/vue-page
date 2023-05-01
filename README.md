@@ -1,7 +1,7 @@
 ## 个人网站模板
 
 
-[![https://wuxin0011.github.io/vue-page](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/vue-page.png)](https://wuxin0011.github.io/vue-page)
+[![vue-page](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/vue-page-index.png)](https://wuxin0011.github.io/vue-page)
 
 
 
@@ -103,13 +103,15 @@ git_message="deploy $web_url"
  如果你想使用 github actions 部署，请申请 `github_token`
 
 1.点击项目设置
- ![setting](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/vue-page-setting.png)
+ ![设置](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/vue-page-setting.png)
+ ![设置token环境变量](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/vue-page-variable.png)
 
 2.找到仓库环境变量设置选项，设置token，变量名设置为 `ACCESS_TOKEN`，
- ![github_token](https://cdn.staticaly.com/gh/wuxin0011/vue-page@main/img/get_token.png)
-
  如果你还不知道如果申请token，点击这里 [申请token](https://github.com/settings/personal-access-tokens)
 
+![点击私人设置](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/github-token-setting.png)
+![点击development](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/vue-token-setting-2.png)
+![生成token](https://cdn.staticaly.com/gh/wuxin0011/blog-resource@main/vue-page/gtihub-token-setting-3.png)
  
 
 
