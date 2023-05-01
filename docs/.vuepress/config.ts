@@ -10,10 +10,10 @@ import htmlModules from './config/htmlModules' // 自定义插入的html块
 
 const DOMAIN_NAME = 'localhost:8080' // 域名 (不带https)
 const WEB_SITE = `http://${DOMAIN_NAME}` // 网址
-
+const IS_DEV = process.env.NODE_ENV == 'development'
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
-  // theme: 'vdoing', // 使用npm主题包
-  theme: resolve(__dirname, '../../vdoing'), // 使用本地主题包
+  theme: 'vdoing', // 使用npm主题包
+  // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题包
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -206,7 +206,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           },
           {
             title: '通过百度搜索本站的',
-            frontUrl: `https://www.baidu.com/s?wd=site%3A${DOMAIN_NAME}%20`,
+            frontUrl: `https://www.baidu.com/s?wd=`,
           },
         ],
       }
@@ -249,8 +249,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         choosen: 'gitalk',
         options: {
-          clientID: ' 24a11f32692b0bf7b210',
-          clientSecret: 'b6c93c64ccca35cfe509c076cf0cea1342539d16',
+          clientID: IS_DEV ? '89da537c46f15ccbf324' : '24a11f32692b0bf7b210',
+          clientSecret: IS_DEV ? '676dc75bbdec5ff92ea699e578365d9135bc22f1' : 'b6c93c64ccca35cfe509c076cf0cea1342539d16',
           repo: 'blog-gitalk-comment', // GitHub 仓库
           owner: 'wuxin0011', // GitHub仓库所有者
           admin: ['wuxin0011'], // 对仓库有写权限的人
