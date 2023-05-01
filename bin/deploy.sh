@@ -26,7 +26,7 @@ git_message="deploy $web_url"
 
 # 日志
 path="$(pwd)/log"
-log=$path/$build_command-error.log
+log=$path/$source-error.log
 
 
 message_check(){
@@ -61,7 +61,7 @@ exec_project(){
    # 发布到主分支的消息
    git add -A  2>>$log
    git commit -m "$git_message"  2>>$log
-   git push -f "$git_source $main_branch"  2>>$log
+   git push -f "$git_source" "$main_branch"  2>>$log
    echo "主分支推送成功！进入项目打包目录 🍖"
 
    # 进入生成的文件夹
@@ -74,7 +74,7 @@ exec_project(){
    git init  2>>$log
    git add -A  2>>$log
    git commit -m "$git_message" 2>>$log
-   git push -f "$git_source $pages_branch " 2>>$log
+   git push -f "$git_source" "$pages_branch" 2>>$log
 
    echo "正在清理打包文件！🧹"
    rm -rf $dist_path  2>>$log
