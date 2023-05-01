@@ -59,10 +59,10 @@ exec_project(){
    echo "项目打包成功！推送消息到主分支🍝"
  
    # 发布到主分支的消息
-   # git add -A 2>>deploy.log
-   # git commit -m $git_message 2>>deploy.log
-   # git push -f $git_source $main_branch 2>>deploy.log
-   # echo "主分支推送成功！进入项目打包目录 🍖"
+   git add -A  2>>$log
+   git commit -m "$git_message"  2>>$log
+   git push -f "$git_source $main_branch"  2>>$log
+   echo "主分支推送成功！进入项目打包目录 🍖"
 
    # 进入生成的文件夹
    cd $dist_path
@@ -73,11 +73,11 @@ exec_project(){
 
    git init  2>>$log
    git add -A  2>>$log
-   git commit -m $git_message 2>>$log
-   git push -f $git_source $pages_branch  2>>$log
+   git commit -m "$git_message" 2>>$log
+   git push -f "$git_source $pages_branch " 2>>$log
 
    echo "正在清理打包文件！🧹"
-   rm -rf $dist_path
+   rm -rf $dist_path  2>>$log
    cd -
 
    echo "项目成功发布到$web_url！🚀"
